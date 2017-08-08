@@ -21,7 +21,7 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
   
     
     $url = "https://newsapi.org/v1/sources";
-
+    $queryParam = array();
     //Change alias and formatted array
     foreach($option as $alias => $value)
     {
@@ -55,12 +55,6 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
 
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = array('result' => $dataBody );
-
-      $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => $dataBody );
-return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
-
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
