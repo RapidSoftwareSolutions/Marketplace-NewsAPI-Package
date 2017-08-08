@@ -9,8 +9,9 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
         "countryCode" => "country"
     );
     $arrayType = array();
-
-return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($option);
+    $result['callback'] = 'success';
+            $result['contextWrites']['to'] = array('result' => 'test' );
+return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     $settings = $this->settings;
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, []);
