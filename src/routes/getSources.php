@@ -18,9 +18,7 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
     } else {
         $postData = $validateRes;
     }
-        $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => $postData );
-return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+  
     
     $url = "https://newsapi.org/v1/sources";
 
@@ -58,7 +56,9 @@ return $response->withHeader('Content-type', 'application/json')->withStatus(200
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = array('result' => $dataBody );
 
-
+      $result['callback'] = 'success';
+            $result['contextWrites']['to'] = array('result' => $dataBody );
+return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
         } else {
