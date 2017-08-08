@@ -9,9 +9,7 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
         "countryCode" => "country"
     );
     $arrayType = array();
-    $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => 'test' );
-return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+
     $settings = $this->settings;
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, []);
@@ -20,6 +18,9 @@ return $response->withHeader('Content-type', 'application/json')->withStatus(200
     } else {
         $postData = $validateRes;
     }
+        $result['callback'] = 'success';
+            $result['contextWrites']['to'] = array('result' => $postData );
+return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     
     $url = "https://newsapi.org/v1/sources";
 
