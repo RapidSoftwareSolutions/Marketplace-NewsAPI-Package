@@ -19,8 +19,6 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
     } else {
         $postData = $validateRes;
     }
-    echo 1;
-    exit();
 
     $url = "https://newsapi.org/v1/sources";
 
@@ -93,12 +91,5 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
         $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
-
-
-
-
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
 
 });
