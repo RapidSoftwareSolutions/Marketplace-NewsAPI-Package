@@ -19,7 +19,8 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
     } else {
         $postData = $validateRes;
     }
-
+    echo 1;
+    exit();
 
     $url = "https://newsapi.org/v1/sources";
 
