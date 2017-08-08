@@ -19,7 +19,7 @@ $app->post('/api/NewsAPI/getSources', function ($request, $response) {
     } else {
         $postData = $validateRes;
     }
-
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($postData['args']);
     $url = "https://newsapi.org/v1/sources";
 
     //Change alias and formatted array
