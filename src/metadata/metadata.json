@@ -56,7 +56,7 @@
 			"description": "Provides a list of the news sources and blogs available on News API.",
 			"args": [
 				{
-					"name": "category",
+					"name": "sourceCategory",
 					"type": "Select",
 					"options":["business","entertainment","gaming","general","music","politics","science-and-nature","sport","technology"],
 					"info": "The category you would like to get sources for.Default: empty (all sources returned).",
