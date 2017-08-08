@@ -1,0 +1,93 @@
+{
+	"package": "NewsAPI",
+	"tagline": "NewsAPI",
+	"description": "News API is a simple and easy-to-use API that returns JSON metadata for the headlines currently published on a range of news sources and blogs.",
+	"image": "https://logo.clearbit.com/newsapi.org",
+	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-NewsAPI-Package",
+	"keywords": [
+		"API",
+		"News",
+		"World",
+		"Blog",
+		"Article",
+		"Source news"
+	],
+	"accounts": {
+		"domain": "newsapi.org",
+    "credentials": ["apiKey"]
+	},
+	"blocks": [
+		{
+			"name": "getArticles",
+			"description": "Provides a list of live article metadata from a news source or blog.",
+			"args": [
+				{
+					"name": "apiKey",
+					"type": "credentials",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "newsSource",
+					"type": "String",
+					"info": "The identifer for the news source or blog you want headlines from. Use the getArticles endpoint to locate this.",
+					"required": true
+				},
+				{
+					"name": "typeOfList",
+					"type": "Select",
+					"options":["top","latest","popular"],
+					"info": "Specify which type of list you want.Note: not all options are available for all sources.",
+					"required": false
+				}
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getSources",
+			"description": "Provides a list of the news sources and blogs available on News API.",
+			"args": [
+				{
+					"name": "category",
+					"type": "Select",
+					"options":["business","entertainment","gaming","general","music","politics","science-and-nature","sport","technology"],
+					"info": "The category you would like to get sources for.Default: empty (all sources returned).",
+					"required": false
+				},
+				{
+					"name": "languageCode",
+					"type": "Select",
+					"options":["en","de","fr"],
+					"info": "Code of the language you would like to get sources for.Default: empty (all sources returned).",
+					"required": false
+				},
+				{
+					"name": "countryCode",
+					"type": "Select",
+					"options":["au","de","gb","it","us","in"],
+					"info": "Code of the country you would like to get sources for.Default: empty (all sources returned).",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		}
+
+		]
+}
